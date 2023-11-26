@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo4h7ns7164dl"]
+
+[ext_resource type="Texture2D" uid="uid://d2c1kxkmbh4cl" path="res://Assets/Art/SingleTiles/diamond.png" id="1_7rr62"]
+[ext_resource type="Script" path="res://Scripts/diamond.gd" id="1_eyfuv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vu01r"]
+
+[node name="Diamond" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_eyfuv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_7rr62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_vu01r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
